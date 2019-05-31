@@ -1,7 +1,7 @@
 
 <project name = "hbvarProject" default= "Display" basedir = ".">
     
-    <property name="HOME" value="/Users/elhamaminmansour/Desktop/unige/projetSemestriel/git/hbvarProject"/>
+    <property name="HOME" value="/Users/elhamaminmansour/Desktop/unige/projetSemestriel/projFinal/HbVarProject/hbvarProject"/>
     <target name="delete">
         <delete dir = "bin"></delete>
         <delete dir = "src"></delete>
