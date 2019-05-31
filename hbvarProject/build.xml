@@ -1,0 +1,44 @@
+
+<project name = "hbvarProject" default= "Display" basedir = ".">
+    
+    <property name="HOME" value="/Users/elhamaminmansour/Desktop/unige/projetSemestriel/git/hbvarProject"/>
+    <target name="delete">
+        <delete dir = "bin"></delete>
+        <delete dir = "src"></delete>
+        <delete dir = "lib"></delete>
+    </target>
+    
+    
+    <path id = "hbvarProject.classpath">
+        <pathelement location="${HOME}/bin"/>
+        <pathelement location ="${HOME}/lib/jsoup-1.11.3.jar"/>
+    </path>
+    
+   
+    
+    <path id="run.Display.classpath">
+        <path refid="hbvarProject.classpath"/>
+        <pathelement location="${HOME}/lib/jsoup-1.11.3.jar"/>
+    </path>
+    
+    <target name="compile">
+        <javac classpathref="hbvarProject.classpath" includeantruntime= "true"
+            srcdir ="${HOME}/src/"
+            destdir ="${HOME}/bin/" includes = "**/*.java"></javac>
+        
+    </target>
+    
+    
+    <target name="Display" depends = "compile">
+        <java classname="user.User" failonerror="true" fork="yes">
+            <arg line="-mz 900 -charge 18 -tol 200 -l &quot;/Users/elhamaminmansour/Desktop/unige/projetSemestriel/entrees/request.txt&quot;"/>
+            <classpath refid= "run.Display.classpath"/>
+        </java>
+    </target>
+    
+    
+    <target name="dist" depends="compile">
+        <jar destfile="${HOME}/lib/OurApplication.jar"/>
+    </target>
+    
+</project>
